@@ -11,32 +11,15 @@ This project is a comprehensive integration of the **1st Year DAW (Web Applicati
 
 <br>
 
-## 🏗️ GitHub Page
-[SSG page](docs/index.md)
-
-<br>
-
-## 🏗️ Architecture Overview
-The project environment is isolated within **VirtualBox** to simulate a real-world production deployment.
-* **Host Machine:** Runs the web browser to access the store.
-* **VM-WEB (Linux Mint):**
-    * Hosts the **Nginx/Apache** server.
-    * Executes the **Python SSG script** to generate HTML files.
-* **VM-BBDD (Linux Mint):**
-    * Hosts the **PostgreSQL** database.
-    * Configured for private access only from the Web VM (Port 5432).
-
-<br>
-
 ## 🛠️ Tech Stack & Academic Modules
 
 | Technology | Module | Role | Docs |
-| :--- | :--- | :--- | :--- |
+| ------- | ------- | ------- | ------- |
 | **Python** | PRO | Web scraping (BeautifulSoup/Requests) and ETL logic. | [Research](docs/scraping_research.md) |
-| **PostgreSQL** | BAE | Relational storage for products, prices, and images. |
-| **VirtualBox** | SSF | Virtualized networking and server administration. | [VMs stups](docs/vm_setup.md) |
+| **PostgreSQL** | BAE | Relational storage for products, prices, and images. | [Database](/docs/db_structure.md)
+| **VirtualBox** | SSF | Virtualized networking and server administration. | [Infrastructure](/docs/infrastructure.md) |
 | **HTML5 / CSS3** | LND | Responsive template design for the static frontend. |
-| **Git / GitHub** | ETS | Version control, documentation, and workflow. |
+| **Git / GitHub** | ETS | Version control, documentation, and workflow. | [SSG page](docs/index.md) |
 | **Markdown / AI** | DJK | AI Skill development for automated data extraction. | [Skill](skills/extraction_skill.md) |
 | **HTTPS / UFW** | ITK | SSL certificate implementation and firewall rules. | [Security plan](docs/security_plan.md) |
 | **English Docs** | IKL | README, docstrings, and deployment manuals. | [Initial README](README.md) |
@@ -44,7 +27,7 @@ The project environment is isolated within **VirtualBox** to simulate a real-wor
 <br>
 
 ## 📅 Roadmap & Milestones (2026)
-- **May 11 (Today):** Project setup, Architecture design, and Source selection.
+- **May 11:** Project setup, Architecture design, and Source selection.
 - **May 19:** Database schema deployment and VM Network isolation.
 - **May 27:** Data extraction phase (Scraping) and Loading to PostgreSQL.
 - **June 04:** Frontend templating, SSG Scripting, and AI Skill development.
