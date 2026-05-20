@@ -2,7 +2,7 @@
 
 This document describes the relational database schema derived from the Entity-Relationship (ER) diagram for the music platform.
 
-[ER diagram](/src/database/modelo_relacional.png)
+![ER diagram](/src/database/modelo_relacional.png)
 
 <br>
 
@@ -70,7 +70,7 @@ A many-to-many (**N:M**) relationship mapping collaboration or ownership between
 ### 3. Contain | Song <-> Album
 The diagram specifies a many-to-many (**N:M**) relationship here, though structurally standard tracks usually belong to one album. Based strictly on the visual indicators:
 *   **Cardinality:** A `song` belongs to 1 to many (`1,n`) albums. An `Álbum` contains 1 to many (`1,m`) songs.
-*   **Implementation:** Requires a junction table (`Album_Contener_Cancion`) containing:
-    *   `id_album` (FK)
-    *   `id_cancion` (FK)
+*   **Implementation:** Requires a junction table (`album_contain_song`) containing:
+    *   `album_id` (FK)
+    *   `song_id` (FK)
 

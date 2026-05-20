@@ -17,7 +17,7 @@ This project is a comprehensive integration of the **1st Year DAW (Web Applicati
 | ------- | ------- | ------- | ------- |
 | **Python** | PRO | Web scraping (BeautifulSoup/Requests) and ETL logic. | [Research](docs/scraping_research.md) |
 | **PostgreSQL** | BAE | Relational storage for products, prices, and images. | [Database](/docs/db_structure.md)
-| **VirtualBox** | SSF | Virtualized networking and server administration. | [Infrastructure](/docs/infra_diagram.md) |
+| **VirtualBox** | SSF | Virtualized networking and server administration. | [Infrastructure](/docs/infrastructure.md) |
 | **HTML5 / CSS3** | LND | Responsive template design for the static frontend. |
 | **Git / GitHub** | ETS | Version control, documentation, and workflow. | [SSG page](docs/index.md) |
 | **Markdown / AI** | DJK | AI Skill development for automated data extraction. | [Skill](skills/extraction_skill.md) |
