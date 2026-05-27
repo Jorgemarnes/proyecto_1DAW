@@ -2,7 +2,7 @@
 
 This document describes the relational database schema derived from the Entity-Relationship (ER) diagram for the music platform.
 
-![ER diagram](/src/database/modelo_relacional.png)
+![ER diagram](/src/database/relational_model.png)
 
 <br>
 
