@@ -1,3 +1,4 @@
 .venv
 *.sql
 __pycache__
+config.py

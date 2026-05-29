@@ -1,9 +1,12 @@
 import requests
 from requests.exceptions import RequestException
-from config import BASE_URL
+
+#from src.settings.settings import BASE_URL
+BASE_URL = 'https://itunes.apple.com/'
 
 def fetch_music_by_artist(*, artist_name: str, limit: int = 50) -> list:
-    """Get songs data from the Itunes API."""
+    """Get songs data from the Itunes API.
+    Limited to 20 calls per minute"""
     url = f'{BASE_URL}search'
     params = {
         'term': artist_name,
@@ -19,5 +22,5 @@ def fetch_music_by_artist(*, artist_name: str, limit: int = 50) -> list:
         return []
 
 if __name__ == '__main__':
-    
-    print(fetch_music_by_artist(artist_name='Michael Jackson', limit=2))
+
+    print(fetch_music_by_artist(artist_name='Michael Jackson', limit=100))
