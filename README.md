@@ -1,10 +1,11 @@
 # 🎸 Music Store - Static Site Generator (SSG) Project - proyecto_1DAW
 
-This project is a comprehensive integration of the **1st Year DAW (Web Application Development)** curriculum. It consists of building a music catalog website using a **Static Site Generation** approach: data is scraped from the web, stored in a relational database, and then used to generate flat HTML files served by a secure web server.
+This project is a comprehensive integration of the **1st Year DAW (Web Application Development)** curriculum. It consists of building a music catalog website using a **Static Site Generation** approach: data is scraped from the web, stored in a relational database, and then used to generate flat HTML files served by a secure web server. We will implement these [requirements](docs/requirements.md).
 
 <br>
 
 ## 👥 Team Members
+
 * **Member 1:** Samuel Reyes Pérez
 * **Member 2:** Airam Hernández Hermida
 * **Member 3:** Jorge Marco Yanes
@@ -16,9 +17,9 @@ This project is a comprehensive integration of the **1st Year DAW (Web Applicati
 | Technology | Module | Role | Docs |
 | ------- | ------- | ------- | ------- |
 | **Python** | PRO | Web scraping (BeautifulSoup/Requests) and ETL logic. | [Research](docs/scraping_research.md) |
-| **PostgreSQL** | BAE | Relational storage for products, prices, and images. | [Database](/docs/db_structure.md)
-| **VirtualBox** | SSF | Virtualized networking and server administration. | [Infrastructure](/docs/infrastructure.md) |
-| **HTML5 / CSS3** | LND | Responsive template design for the static frontend. |
+| **PostgreSQL** | BAE | Relational storage for products, prices, and images. | [Database](docs/db_structure.md) |
+| **VirtualBox** | SSF | Virtualized networking and server administration. | [Infrastructure](docs/infrastructure.md) |
+| **HTML5 / CSS3** | LND | Responsive template design for the static frontend. | [Design](docs/design.md) |
 | **Git / GitHub** | ETS | Version control, documentation, and workflow. | [SSG page](docs/index.md) |
 | **Markdown / AI** | DJK | AI Skill development for automated data extraction. | [Skill](skills/extraction_skill.md) |
 | **HTTPS / UFW** | ITK | SSL certificate implementation and firewall rules. | [Security plan](docs/security_plan.md) |
@@ -27,11 +28,12 @@ This project is a comprehensive integration of the **1st Year DAW (Web Applicati
 <br>
 
 ## 📅 Roadmap & Milestones (2026)
-- **May 11:** Project setup, Architecture design, and Source selection.
-- **May 19:** Database schema deployment and VM Network isolation.
-- **May 27:** Data extraction phase (Scraping) and Loading to PostgreSQL.
-- **June 04:** Frontend templating, SSG Scripting, and AI Skill development.
-- **June 12:** Security hardening, final audit, and project defense.
+
+* **May 11:** Project setup, Architecture design, and Source selection.
+* **May 19:** Database schema deployment and VM Network isolation.
+* **May 27:** Data extraction phase (Scraping) and Loading to PostgreSQL.
+* **June 04:** Frontend templating, SSG Scripting, and AI Skill development.
+* **June 12:** Security hardening, final audit, and project defense.
 
 <br>
 
@@ -39,16 +41,13 @@ This project is a comprehensive integration of the **1st Year DAW (Web Applicati
 
 ```text
 .
-├── docs/           # Technical documentation & GitHub Pages
-│ ├── architecture/ # Network diagrams
-├── src/            # Project source code
-│ ├── scraping/     # Scrapers and intermediate JSON files
-│ ├── database/     # SQL schemas and DB connection scripts
-│ └── ssg/          # HTML/CSS templates and generator script
-|   ├── static      # CSS design
-|   └── templates   # HTML templates
+├── docs/           # Technical documentation and project reports
 ├── infra/          # VM configuration and setup guides
-└── skills/         # Markdown skills for AI agents
+├── skills/         # Markdown skills for AI agents
+└── src/            # Project source code
+  ├── scraping/     # Scraper script
+  ├── database/     # SQL schemas and DB connection script
+  └── ssg/          # HTML/CSS templates and generator script
+    ├── static      # CSS design
+    └── templates   # HTML template
 ```
-
-

@@ -5,6 +5,7 @@ This document outlines the security measures and protocols implemented to protec
 <br>
 
 ## 1. Network Security & Isolation
+
 The architecture follows the principle of **least privilege**, ensuring that services are only accessible to authorized components.
 
 * **Database Isolation**: The PostgreSQL VM (Port 5432) will be configured to accept connections **exclusively** from the Web Server VM IP. All other external traffic will be blocked using the internal firewall (`ufw`).
@@ -13,6 +14,7 @@ The architecture follows the principle of **least privilege**, ensuring that ser
 <br>
 
 ## 2. Web Security (HTTPS/SSL)
+
 To ensure encrypted communication between the host browser and the web server, we will implement **SSL/TLS**.
 
 * **Self-Signed Certificates**: We will generate certificates using **OpenSSL** to enable HTTPS.
@@ -22,6 +24,7 @@ To ensure encrypted communication between the host browser and the web server, w
 <br>
 
 ## 3. Access Control & Multi-Factor Authentication (MFA)
+
 Based on recent security studies, we will implement enhanced authentication for system administration.
 
 * **2FA for SSH**: We will research the implementation of the **Google Authenticator (PAM module)** on the Linux Mint VMs. This requires a time-based one-time password (TOTP) in addition to the standard password.
@@ -30,6 +33,7 @@ Based on recent security studies, we will implement enhanced authentication for 
 <br>
 
 ## 4. Ethical Scraping & Data Integrity
+
 Security also involves respecting external infrastructure and ensuring legal compliance.
 
 * **Throttling**: The Python script will include delays between requests to avoid being flagged as a malicious bot or causing a Denial of Service (DoS).
@@ -39,6 +43,7 @@ Security also involves respecting external infrastructure and ensuring legal com
 <br>
 
 ## 5. Database & Code Security
+
 * **Credential Management**: Database passwords will be stored in an `.env` file (excluded from the repository via `.gitignore`) to prevent accidental leaks.
 * **SQL Injection Prevention**: All database interactions in Python will use **parameterized queries** (prepared statements) to prevent SQL injection attacks.
 
@@ -47,7 +52,8 @@ Security also involves respecting external infrastructure and ensuring legal com
 ---
 
 ### Security Audit Checklist (Planned for June 12)
+
 - [ ] Verify SSL certificate status in the browser.
-- [ ] Test firewall rules: Ensure Port 5432 is unreachable from the Host.
-- [ ] Confirm 2FA prompts during SSH login.
-- [ ] Ensure no sensitive credentials or `.env` files are present in the GitHub history.
+* [ ] Test firewall rules: Ensure Port 5432 is unreachable from the Host.
+* [ ] Confirm 2FA prompts during SSH login.
+* [ ] Ensure no sensitive credentials or `.env` files are present in the GitHub history.
