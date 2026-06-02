@@ -1,5 +1,8 @@
+import random
+
 from src.database.db_handler import DBHandler
 from src.settings.settings import SS_URL, SS_STYLE_URL
+
 
 def format_duration(millis_str: str) -> str:
     """Convert the miliseconds to mm:ss format"""
@@ -46,7 +49,8 @@ def generate_static_site(*, db: DBHandler):
                     <div class='album'>
                         <img src="{album['cover']}" alt="Portada de {album['title']}">
                         <div class='album-info'>
-                            <h3>{album['title']} <span class='year'>({album['release']})</span></h3>
+                            <h3><div>{album['title']} <span class='year'>({album['release']})</div>
+                            </span><span class='price'>{round(random.uniform(10, 20), 2)}&euro;</span></h3>
                             <ul class='song-list'>
             """)
             for song in album['songs']:
@@ -89,14 +93,13 @@ def generate_static_site(*, db: DBHandler):
     with open(SS_STYLE_URL, 'w') as f:
         f.write("""
 :root {
-    --bg-color: #f4f4f9;
-    --text: #333;
-    --border: #e2e8f0;
-    --accent: #3b82f6;
+    --bg-color: lightgrey;
+    --text: black;
+    --border: grey;
+    --accent: darkblue;
 }
 body {
-    font-family: system-ui,
-    -apple-system, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background-color: var(--bg-color);
     color: var(--text);
     padding: 2rem;
@@ -104,69 +107,71 @@ body {
 }
 .header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin: 3rem;
 }
 .container {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 .artist {
     background: white;
     padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px var(--border);
     margin-bottom: 2rem;
 }
 .artist h2 {
     margin-top: 0;
     color: var(--accent);
     border-bottom: 2px solid var(--border);
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
 }
 .album {
     display: flex;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
+    gap: 2rem;
+    padding-bottom: 1rem;
+    margin-top: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+.album:last-child {
+    border-bottom: none;
 }
 .album img {
-    width: 120px;
-    height: 120px;
-    border-radius: 8px;
+    width: 150px;
+    height: 150px;
+    border-radius: 6px;
     object-fit: cover;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px var(--bg-color);
 }
 .album-info {
-    flex-grow: 1;
+    flex: 1;
 }
 .album-info h3 {
-    margin: 0 0 1rem 0;
-    font-size: 1.2rem;
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+}
+.price {
+    color: darkred;
 }
 .year {
-    color: #64748b;
-    font-weight: normal;
-    font-size: 1rem;
+    color: var(--border);
 }
 .song-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    padding-left: 0;
 }
 .song-item {
     display: flex;
     justify-content: space-between;
-    padding: 0.5rem 0;
     border-bottom: 1px dashed var(--border);
-    font-size: 0.95rem;
+    padding: 0.2rem;
+    font-size: 1rem;
 }
 .song-item:last-child {
     border-bottom: none;
 }
 .song-duration {
-    color: #64748b;
-    font-family: monospace;
+    color: var(--border);
     font-size: 1rem;
 }
 """)
