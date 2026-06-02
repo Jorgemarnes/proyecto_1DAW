@@ -41,9 +41,12 @@ class DBHandler:
         except Exception as e:
             print(f'[DB] Error committing transaction: {e}')
             self.con.rollback() # type: ignore[reportOptionalMemberAccess]
-        self.cur.close() # type: ignore[reportOptionalMemberAccess]
-        self.con.close() # type: ignore[reportOptionalMemberAccess]
-        print('[DB] Connection and cursor closed')
+        finally:
+            if self.cur:
+                self.cur.close() # type: ignore[reportOptionalMemberAccess]
+            if self.con:
+                self.con.close() # type: ignore[reportOptionalMemberAccess]
+            print('[DB] Connection and cursor closed')
         return False # Return False to let any unexpected exception propagate normally
 
     def insert_scraped_data(self, tracks: list) -> None:
@@ -105,3 +108,28 @@ class DBHandler:
         except Exception as e:
             print(f'[DB Error] SQL transaction failed. Rollback applied: {e}')
             raise e   
+
+    def fetch_distinct_albums(self) -> list[tuple] | list:
+        """Retrieves all albums with their associated artist and songs from the database."""
+        sql = """
+            SELECT ar.name, a.title, a.cover_url, a.release_date,
+                STRING_AGG(s.title || ',' || s.duration, ';' ORDER BY s.id)
+            FROM album a
+            JOIN album_song sa ON a.id = sa.album_id
+            JOIN song s ON sa.song_id = s.id
+            JOIN artist_album aa ON a.id = aa.album_id
+            JOIN artist ar ON aa.artist_id = ar.id
+            GROUP BY ar.name, a.title, a.cover_url, a.release_date
+            ORDER BY ar.name, a.id ASC;
+        """
+        if self.cur is None:
+            print(f'[DB Error] Database cursor is not initialized. Cannot execute query.')
+            raise ConnectionError
+        try:
+            self.cur.execute(sql)
+            data = self.cur.fetchall()
+            print(f"[DB] Query executed successfully. {len(data)} records retrieved.")
+            return data
+        except Exception as e:
+            print(f"[DB Error] SQL execution failed: {e}")
+            raise e
