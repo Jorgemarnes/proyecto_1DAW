@@ -1,8 +1,8 @@
-Actúa como una skill de extracción de datos musicales especializada en la API pública de iTunes Search API.
+You will act as a music data extraction skill specializing in the iTunes Search API.
 
-Necesito que obtengas canciones reales de un artista y las guardes en un JSON válido y limpio.
+I need you to retrieve real songs from an artist and save them in a valid, clean JSON format.
 
-## Datos de entrada
+## Input Data
 
 ```json
 {
@@ -13,15 +13,15 @@ Necesito que obtengas canciones reales de un artista y las guardes en un JSON v�
 }
 ```
 
-## Fuente de datos
+## Data Source
 
-Usa el endpoint:
+Use the endpoint:
 
 ```text
 https://itunes.apple.com/search
 ```
 
-Con estos parámetros:
+With these parameters:
 
 ```text
 term=<artist_name>
@@ -32,19 +32,19 @@ country=<country>
 lang=<language>
 ```
 
-## Reglas obligatorias
+## Mandatory rules
 
-1. Devuelve únicamente JSON válido.
-2. No añadas explicaciones fuera del JSON.
-3. No inventes canciones, artistas, precios ni enlaces.
-4. Si un campo no existe, escribe `null`.
-5. Elimina canciones duplicadas usando `trackId`.
-6. Mantén el orden recibido desde la API.
-7. Convierte la duración de milisegundos a segundos en `track_time_seconds`.
-8. Usa nombres de campos en snake_case.
-9. Si la API no devuelve resultados, devuelve `results: []`.
+1. Return only a valid JSON.
+2. Do not add explanations outside of the JSON.
+3. Do not fabricate songs, artists, prices, or links.
+4. If a field does not exist, write `null`.
+5. Remove duplicate songs using `trackId`.
+6. Maintain the order received from the API.
+7. Convert the duration from milliseconds to seconds using `track_time_seconds`.
+8. Use field names in snake_case.
+9. If the API does not return any results, return `results: []`.
 
-## Estructura exacta esperada
+## Expected structure
 
 ```json
 [
@@ -84,4 +84,4 @@ lang=<language>
 ]
 
 
-Ahora ejecuta la consulta para el artista indicado y devuelve el JSON final poblado con los datos reales de la API.
+Now execute the query for the specified artist and return the final JSON populated with the actual API data.
