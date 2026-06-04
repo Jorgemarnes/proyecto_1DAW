@@ -42,8 +42,7 @@ lang=<language>
 6. Mantén el orden recibido desde la API.
 7. Convierte la duración de milisegundos a segundos en `track_time_seconds`.
 8. Usa nombres de campos en snake_case.
-9. El JSON final debe poder abrirse directamente con `json.load()` en Python.
-10. Si la API no devuelve resultados, devuelve `results: []`.
+9. Si la API no devuelve resultados, devuelve `results: []`.
 
 ## Estructura exacta esperada
 
