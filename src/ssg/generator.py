@@ -1,7 +1,7 @@
 import random
 
 from src.database.db_handler import DBHandler
-from src.settings.settings import SS_URL, SS_STYLE_URL
+from src.settings.settings import SS_URL, SS_STYLE_URL, WEB_STYLE_URL
 
 
 def format_duration(millis_str: str) -> str:
@@ -50,7 +50,7 @@ def generate_static_site(*, db: DBHandler):
                         <img src="{album['cover']}" alt="Portada de {album['title']}">
                         <div class='album-info'>
                             <h3><div>{album['title']} <span class='year'>({album['release']})</div>
-                            </span><span class='price'>{round(random.uniform(10, 20), 2)}&euro;</span></h3>
+                            </span><span class='price'>{round(random.uniform(10, 20), 2):.02f}&euro;</span></h3>
                             <ul class='song-list'>
             """)
             for song in album['songs']:
@@ -76,7 +76,7 @@ def generate_static_site(*, db: DBHandler):
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Music Store Discography</title>
-        <link rel="stylesheet" href={SS_STYLE_URL}>
+        <link rel="stylesheet" href={WEB_STYLE_URL}>
     </head>
     <body>
         <div class="container">

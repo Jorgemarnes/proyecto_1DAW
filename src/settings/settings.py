@@ -1,5 +1,6 @@
 BASE_URL = 'https://itunes.apple.com/'
-HOST = 'localhost'
+HOST = '10.109.15.16'
 PORT = '5432'
 SS_URL = 'src/ssg/template/index.html'
 SS_STYLE_URL = 'src/ssg/static/styles.css'
+WEB_STYLE_URL = 'static/styles.css'
