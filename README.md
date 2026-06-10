@@ -41,13 +41,34 @@ This project is a comprehensive integration of the **1st Year DAW (Web Applicati
 
 ```text
 .
-├── docs/           # Technical documentation and project reports
-├── infra/          # VM configuration and setup guides
-├── skills/         # Markdown skills for AI agents
-└── src/            # Project source code
-  ├── scraping/     # Scraper script
-  ├── database/     # SQL schemas and DB connection script
-  └── ssg/          # HTML/CSS templates and generator script
-    ├── static      # CSS design
-    └── templates   # HTML template
+├── docs/                    # Technical documentation and project reports
+│   ├── app_requirements.md
+│   ├── db_structure.md
+│   ├── design.md
+│   ├── index.md
+│   ├── infrastructure.md
+│   ├── research_sources.md
+│   ├── scraping_research.md
+│   ├── security_plan.md
+│   └── setup_guide.md
+│
+├── infra/                   # VM configuration and setup
+│   ├── arch_diagram.drawio
+│   ├── arch_diagram.png
+│   └── vm_setup.md
+│
+├── skills/                  # Markdown skills for AI agents
+│   └── extraction_skill.md
+│
+├── src/                     # Project source code
+|   ├── scraping/            # Scraper script
+|   ├── database/            # SQL schemas and DB connection script
+|   ├── settings/            # Constants as URLs, host ip and port
+|   └── ssg/                 # HTML/CSS templates and generator script  
+|      ├── static/           # CSS design
+|      └── templates/        # HTML template
+|
+├── README.md
+├── requirements.txt
+└── main.py
 ```
